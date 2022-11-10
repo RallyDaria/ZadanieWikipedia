@@ -38,13 +38,18 @@ public class WikipediaSteps {
     public void zostaje_poprawnie_wyszukana(String tekst)  {
         //Assert.assertTrue(tekst,driver.findElement(By.id("firstHeading")).getText().toLowerCase().contains(tekst));
         //Assert.assertTrue(driver.findElement(By.id("firstHeading")).getText().toLowerCase().startsWith(tekst));
-       Assert.assertEquals(tekst+"[edytuj]",driver.findElement(By.id("firstHeading")).getText().toLowerCase());
+
+
         //bdd = BDD[edytuj]
+        System.out.println("wyszukiwanie po id"+ driver.findElement(By.id("firstHeading")).getText());
+        System.out.println("wyszukiwanie po className"+ driver.findElement(By.className("mw-page-title-main")));
+
+         Assert.assertEquals(tekst+"[edytuj]",driver.findElement(By.id("firstHeading")).getText().toLowerCase());
     }
 
     @AfterAll
     public static void tearDown(){
-       // driver.close();
+        driver.close();
     }
 
 }
